@@ -1,0 +1,12 @@
+Olá
+
+Muito Obrigado por se inscrever no eventex
+
+Estes foram os dados que você nos informou:
+
+Nome: {{ name }}
+CPF: {{ cpf }}
+Email: {{ email }}
+Telefone: {{ phone }}
+
+Em breve entraremos em contato
