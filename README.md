@@ -7,6 +7,8 @@ Sim isso é uma área de prototipação, não garanto nada aqui.
 ---
 Sistema de eventos
 
+[![Build Status](https://travis-ci.org/hugopenna/wttd.svg?branch=master)](https://travis-ci.org/hugopenna/wttd)
+
 ### Como desenvolver?
 
 1. Clone o repositório
