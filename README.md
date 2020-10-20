@@ -8,6 +8,8 @@ Sim isso é uma área de prototipação, não garanto nada aqui.
 Sistema de eventos
 
 [![Build Status](https://travis-ci.org/hugopenna/wttd.svg?branch=master)](https://travis-ci.org/hugopenna/wttd)
+[![Maintainability](https://api.codeclimate.com/v1/badges/605b0a6685b1d44d2cb1/maintainability)](https://codeclimate.com/github/hugopenna/wttd/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/605b0a6685b1d44d2cb1/test_coverage)](https://codeclimate.com/github/hugopenna/wttd/test_coverage)
 
 ### Como desenvolver?
 
