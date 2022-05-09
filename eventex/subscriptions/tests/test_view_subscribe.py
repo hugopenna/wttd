@@ -46,7 +46,7 @@ class SubscribePostValid(TestCase):
 
     def test_post(self):
         """Valid POST should redirect to /inscricao/UUID-PK/"""
-        self.assertRedirects(self.resp, '/inscricao/{}/'.format(Subscription.from_db(id,uuid)))
+        self.assertRedirects(self.resp, '/inscricao/{}/'.format(self.resp.context['subscription'].id))
 
     def test_send_subscribe_email(self):
         self.assertEqual(1, len(mail.outbox))
