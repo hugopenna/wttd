@@ -11,10 +11,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = {
-        migrations.RemoveField(
-            model_name='subscription',
-            name='id',
-        ),
         migrations.AlterField(
             model_name='subscription',
             name='temp_id',
