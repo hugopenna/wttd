@@ -3,7 +3,7 @@
 from django.db import migrations
 import uuid
 
-def gen_uuid(apps):
+def gen_uuid(apps,schema_editor):
     subscriptions = apps.get_model('subscriptions', 'subscription')
     for row in subscriptions.objects.all():
         row.uuid = uuid.uuid4()
