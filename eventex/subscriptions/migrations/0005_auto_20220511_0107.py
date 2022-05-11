@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
         ('subscriptions', '0004_auto_20220511_0100'),
     ]
 
-    operations = [
+    operations = {
         migrations.RemoveField(
             model_name='subscription',
             name='id',
@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='subscription',
             name='temp_id',
-            field=models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False),
+            field=models.UUIDField(default=uuid.uuid4, primary_key=True),
         ),
-    ]
+    }
