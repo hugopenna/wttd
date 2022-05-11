@@ -3,9 +3,9 @@
 from django.db import migrations
 import uuid
 
-def gen_uuid(apps, schema_editor):
-    MyModel = apps.get_model('subscriptions', 'subscription')
-    for row in MyModel.objects.all():
+def gen_uuid(apps):
+    subscriptions = apps.get_model('subscriptions', 'subscription')
+    for row in subscriptions.objects.all():
         row.uuid = uuid.uuid4()
         row.save(update_fields=['temp_id'])
 
