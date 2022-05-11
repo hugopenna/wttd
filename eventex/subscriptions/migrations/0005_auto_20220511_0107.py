@@ -18,6 +18,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='subscription',
             name='temp_id',
-            field=models.UUIDField(default=uuid.uuid4, primary_key=True),
+            field=models.UUIDField(default=uuid.uuid4, unique=True),
         ),
     }
