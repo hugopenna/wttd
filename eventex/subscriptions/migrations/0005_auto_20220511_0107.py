@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='subscription',
             name='temp_id',
-            field=models.UUIDField(default=uuid.uuid4, unique=True),
+            field=models.UUIDField(primary_key=True, uuid.uuid4, unique=True),
         ),
     }
