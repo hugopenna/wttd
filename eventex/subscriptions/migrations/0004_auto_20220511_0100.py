@@ -3,11 +3,12 @@
 from django.db import migrations
 import uuid
 
-def gen_uuid(apps,schema_editor):
+def gen_uuid(apps, schema_editor):
+    db_alias = schema_editor.connection.alias
     subscriptions = apps.get_model('subscriptions', 'subscription')
-    for row in subscriptions.objects.all():
-        row.uuid = uuid.uuid4()
-        row.save(update_fields=['temp_id'])
+    for row in subscriptions.objects.using(db_alias).all():
+        row.temp_id = uuid.uuid4()
+        row.save()
 
 class Migration(migrations.Migration):
 
@@ -16,5 +17,5 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(gen_uuid, reverse_code=migrations.RunPython.noop)
+        migrations.RunPython(gen_uuid)
     ]
