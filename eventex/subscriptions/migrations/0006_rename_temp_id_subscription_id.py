@@ -10,9 +10,18 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RemoveField(
+            model_name='subscription',
+            name='id',
+        ),
         migrations.RenameField(
             model_name='subscription',
             old_name='temp_id',
             new_name='id',
         ),
+        migrations.AlterField(
+            model_name='subscription',
+            name='id',
+            field=models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False),
+        )
     ]
