@@ -42,7 +42,7 @@ class SunscriptionsNewGet(TestCase):
 class SunscriptionsNewPostValid(TestCase):
     data = dict()
     def setUp(self):
-        data = dict(name='Hugo Penna', cpf='12345678901', email='wttd@hugopenna.com', phone='11-99998-1254')
+        data = dict(name='paul walker', cpf='12345678901', email='me@me.com', phone='11999991234')
         self.resp = self.client.post(r('subscriptions:new'), data)
 
     def test_post(self):

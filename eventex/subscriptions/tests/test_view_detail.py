@@ -9,10 +9,10 @@ from eventex.subscriptions.models import Subscription
 class SubscriptionDetailGet(TestCase):
     def setUp(self):
         self.obj = Subscription.objects.create(
-            name='Hugo Penna',
-            cpf='12345678901',
-            email='wttd@hugopenna.com',
-            phone='11-999981254'
+                name='Paul Walker',
+                cpf='12345678901',
+                email='me@me.com',
+                phone='11999991234',
         )
         self.resp = self.client.get(r('subscriptions:detail', self.obj.pk))
 
