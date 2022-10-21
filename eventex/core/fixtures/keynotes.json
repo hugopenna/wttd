@@ -1,0 +1,24 @@
+[
+{
+    "model": "core.speakers",
+    "pk": 1,
+    "fields": {
+        "name": "Grace Hopper",
+        "slug": "grace-hopper",
+        "photo": "http://hbn.link/hopper-pic",
+        "website": "http://hbn.link/hopper-site",
+        "description": "Programadora e Almirante.\r\nInventora do compilador, criadora da linguagem de programacao Flow-Matic serviu de base para a linguagem COBOL permitindo a popularizacao de aplicacoes comerciais.\r\nQuer mais?"
+    }
+},
+{
+    "model": "core.speakers",
+    "pk": 2,
+    "fields": {
+        "name": "Alan Turing",
+        "slug": "alan-turing",
+        "photo": "http://hbn.link/turing-pic",
+        "website": "http://hbn.link/turing-site",
+        "description": "dispensa apresentacao."
+    }
+}
+]
