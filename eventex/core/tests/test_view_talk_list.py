@@ -2,15 +2,22 @@ from django.test import TestCase
 
 from django.shortcuts import resolve_url as r
 
-from eventex.core.models import Talk
+from eventex.core.models import Talk, Speakers
 
 
 class TalkListGet(TestCase):
     def setUp(self):
-        Talk.objects.create(title="Título da Palestra", start="10:00",
+        t1 = Talk.objects.create(title="Título da Palestra", start="10:00",
                             description="Descrição da palestra.")
-        Talk.objects.create(title="Título da Palestra", start="13:00",
+        t2 = Talk.objects.create(title="Título da Palestra", start="13:00",
                             description="Descrição da palestra.")
+
+        speaker = Speakers.objects.create(name='Grace Hopper',slug='grace-hopper',
+                                         website='http://hbn.link/hopper-site')
+
+        t1.speakers.add(speaker)
+        t2.speakers.add(speaker)
+
         self.resp = self.client.get(r('talk_list'))
 
     def test_get(self):
@@ -24,8 +31,8 @@ class TalkListGet(TestCase):
             (2, "Título da Palestra"),
             (1, "10:00"),
             (1, "13:00"),
-            (2, "/palestrantes/henrique-bastos/"),
-            (2, "Henrique Bastos"),
+            (2, "/palestrantes/grace-hopper/"),
+            (2, "Grace Hopper"),
             (2, "Descrição da palestra.")
         ]
 
@@ -39,3 +46,11 @@ class TalkListGet(TestCase):
         for key in variables:
             with self.subTest():
                 self.assertIn(key, self.resp.context)
+
+
+class TalkListGetEmpty(TestCase):
+    def test_get_empty(self):
+        response = self.client.get(r('talk_list'))
+
+        self.assertContains(response, 'Ainda nao existem palestras de manha')
+        self.assertContains(response, 'Ainda nao existem palestras de tarde')
