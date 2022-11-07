@@ -24,12 +24,12 @@ class SpeakerModelAdmin(admin.ModelAdmin):
     photo_img.short_description = 'foto'
 
     def email(self, obj):
-        return Contacts.emails.filter(speaker=obj).first()
+        return obj.contacts_set.emails().first()
 
     email.short_description = 'e-mail'
 
     def phone(self, obj):
-        return Contacts.phones.filter(speaker=obj).first()
+        return obj.contacts_set.phones().first()
 
     phone.short_description = 'telefone'
 
