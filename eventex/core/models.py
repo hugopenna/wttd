@@ -19,7 +19,7 @@ class Speakers(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return r('speaker_detail', slug=self.slug)
+        return r('speakers_detail', slug=self.slug)
 
 
 class Contacts(models.Model):

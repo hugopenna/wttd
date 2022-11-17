@@ -12,14 +12,14 @@ class SpeakerDetailGet(TestCase):
             website='http://hbn.link/hopper-site',
             slug='grace-hopper'
         )
-        self.resp = self.client.get(r('speaker_detail', slug='grace-hopper'))
+        self.resp = self.client.get(r('speakers_detail', slug='grace-hopper'))
 
     def test_get(self):
         """GET should return status 200"""
         self.assertEqual(200, self.resp.status_code)
 
     def test_template_used(self):
-        self.assertTemplateUsed(self.resp, 'core/speaker_detail.html')
+        self.assertTemplateUsed(self.resp, 'core/speakers_detail.html')
 
     def test_html(self):
         contents = [
@@ -34,11 +34,11 @@ class SpeakerDetailGet(TestCase):
 
     def test_context(self):
         """Speaker must be in context"""
-        speaker = self.resp.context['speaker']
-        self.assertIsInstance(speaker, Speakers)
+        speakers = self.resp.context['speakers']
+        self.assertIsInstance(speakers, Speakers)
 
 
 class SpeakerDetailNotFound(TestCase):
     def test_not_found(self):
-        response = self.client.get(r('speaker_detail', slug='not_found'))
+        response = self.client.get(r('speakers_detail', slug='not_found'))
         self.assertEqual(404, response.status_code)
